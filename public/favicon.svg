@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="HAGORA brand mark">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff2f7"/>
+      <stop offset="100%" stop-color="#f9dfe9"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="42" y="24" width="12" height="80" rx="6" fill="#c2185b"/>
+  <rect x="74" y="24" width="12" height="80" rx="6" fill="#c2185b"/>
+  <rect x="42" y="58" width="44" height="12" rx="6" fill="#c2185b"/>
+  <circle cx="100" cy="34" r="11" fill="#f2a4b5"/>
+  <path d="M100 18c4 7 8 11 12 18-5-1-8-4-12-8-4 4-8 7-12 8 4-7 8-11 12-18Z" fill="#c2185b"/>
+  <circle cx="92" cy="30" r="2.5" fill="#fff" opacity="0.9"/>
+</svg>

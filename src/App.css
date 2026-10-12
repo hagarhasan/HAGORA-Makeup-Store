@@ -1,0 +1,718 @@
+:root {
+    --hagora-pink: #c2185b;
+    --hagora-light-pink: #fce4ec;
+}
+
+.hagora-link {
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hagora-link:hover {
+    color: var(--hagora-pink);
+    background-color: var(--hagora-light-pink);
+}
+
+.hagora-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--hagora-pink);
+    background-color: var(--hagora-light-pink);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hagora-icon:hover {
+    color: white;
+    background-color: var(--hagora-pink);
+    transform: translateY(-2px);
+}
+
+.hagora-footer-link {
+    color: #6c757d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hagora-footer-link:hover {
+    color: var(--hagora-pink);
+    padding-left: 5px;
+}
+
+.hagora-social {
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.hagora-social:hover {
+    color: var(--hagora-pink);
+    transform: translateY(-3px);
+}
+
+.app-loading-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff7fb 0%, #fce4ec 100%);
+}
+
+.app-loading-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #f8bbd0;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(194, 24, 91, 0.12);
+    padding: 40px 36px;
+    text-align: center;
+    min-width: 280px;
+}
+
+.app-loading-spinner {
+    width: 56px;
+    height: 56px;
+    border: 4px solid #f8bbd0;
+    border-top: 4px solid #c2185b;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    animation: hagora-spin 1s linear infinite;
+}
+
+.app-loading-card h2 {
+    margin: 0;
+    color: #c2185b;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.app-loading-card p {
+    margin: 10px 0 0;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.app-error-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    background: rgba(194, 24, 91, 0.96);
+    color: white;
+    border-radius: 999px;
+    padding: 10px 18px;
+    box-shadow: 0 12px 28px rgba(194, 24, 91, 0.25);
+    font-size: 0.85rem;
+    z-index: 2000;
+}
+
+@keyframes hagora-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-hagora-primary {
+    background: linear-gradient(135deg, #c2185b 0%, #ad1457 100%);
+    color: white !important;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(194, 24, 91, 0.25);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hagora-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(194, 24, 91, 0.38);
+    background: linear-gradient(135deg, #d81b60 0%, #c2185b 100%);
+    color: white !important;
+}
+
+.btn-hagora-outline {
+    background: transparent;
+    color: var(--hagora-pink) !important;
+    border: 2px solid var(--hagora-pink);
+    border-radius: 50px;
+    padding: 11px 26px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hagora-outline:hover {
+    background: var(--hagora-light-pink);
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+.hagora-card-product {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #fce4ec;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hagora-card-product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(194, 24, 91, 0.12);
+    border-color: #f8bbd0;
+}
+
+.hagora-product-img-box {
+    position: relative;
+    overflow: hidden;
+    background: #fdf5f7;
+    border-radius: 16px;
+    aspect-ratio: 1 / 1;
+}
+
+.hagora-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hagora-card-product:hover .hagora-product-img {
+    transform: scale(1.06);
+}
+
+.hagora-badge-pill {
+    background: #fce4ec;
+    color: #c2185b;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.hagora-hero-img-container {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(194, 24, 91, 0.16);
+}
+
+.hagora-floating-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    border: 1px solid #f8bbd0;
+    border-radius: 16px;
+    padding: 10px 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.hagora-banner-box {
+    background: linear-gradient(135deg, #fce4ec 0%, #fff0f5 50%, #f8bbd0 100%);
+    border-radius: 28px;
+    border: 1px solid #f8bbd0;
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hagora-feature-card {
+    background: white;
+    border: 1px solid #fce4ec;
+    border-radius: 20px;
+    padding: 32px 24px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.hagora-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #f8bbd0;
+    box-shadow: 0 12px 30px rgba(194, 24, 91, 0.08);
+}
+
+/* Hero Component */
+.hagora-hero-img-container {
+    position: relative;
+    height: 520px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #fce4ec;
+}
+
+.hagora-hero-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hagora-hero-img-container:hover img {
+    transform: scale(1.03);
+}
+
+.hagora-floating-badge {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 14px 18px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.btn-hagora-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 24px;
+    border-radius: 50px;
+    background-color: #c2185b;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-hagora-primary:hover {
+    background-color: #a3154d;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-hagora-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border-radius: 50px;
+    border: 1px solid #c2185b;
+    background-color: white;
+    color: #c2185b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-hagora-outline:hover {
+    background-color: #c2185b;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 991px) {
+    .hagora-hero-img-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hagora-hero-img-container {
+        height: 350px;
+        border-radius: 20px;
+    }
+
+    .hagora-floating-badge {
+        padding: 10px 12px;
+    }
+
+    .hagora-floating-badge small {
+        display: none;
+    }
+}
+
+/* shop by category section */
+.hagora-category-card {
+    background-color: white;
+    border: 1px solid #f1dce4;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.hagora-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(194, 24, 91, 0.12);
+}
+
+.hagora-category-img-box {
+    height: 220px;
+    border-radius: 16px;
+    background-color: #fce4ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hagora-category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    transition: transform 0.4s ease;
+}
+
+.hagora-category-card:hover .hagora-category-img {
+    transform: scale(1.08);
+}
+
+/* Best Selling Products section */
+
+.hagora-badge-pill {
+    padding: 7px 16px;
+    border-radius: 50px;
+    background-color: #fce4ec;
+    color: #c2185b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hagora-card-product {
+    background-color: white;
+    border: 1px solid #f1dce4;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.hagora-card-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(194, 24, 91, 0.12);
+}
+
+.hagora-product-img-box {
+    position: relative;
+    height: 260px;
+    border-radius: 16px;
+    background-color: #fce4ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hagora-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    transition: transform 0.4s ease;
+}
+
+.hagora-card-product:hover .hagora-product-img {
+    transform: scale(1.08);
+}
+
+/* Product page filter*/
+.hagora-filter {
+    background: #ffffff;
+    border: 1px solid #f1dce5;
+    border-radius: 22px;
+    padding: 28px 30px;
+    box-shadow: 0 8px 30px rgba(194, 24, 91, 0.05);
+}
+
+.hagora-filter-eyebrow {
+    display: block;
+    color: #c2185b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.hagora-product-count {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fce4ec;
+    color: #c2185b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hagora-reset {
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.hagora-reset:hover {
+    color: #c2185b;
+    background: #fce4ec;
+}
+
+.hagora-filter-divider {
+    height: 1px;
+    background: #f3e7eb;
+    margin-bottom: 24px;
+}
+
+.hagora-filter-title {
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hagora-filter-pill,
+.hagora-price-pill {
+    border: 1px solid #e9e9e9;
+    background: #ffffff;
+    color: #555;
+    border-radius: 50px;
+    padding: 9px 17px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.hagora-filter-pill:hover,
+.hagora-price-pill:hover {
+    border-color: #c2185b;
+    color: #c2185b;
+    background: #fff7fa;
+}
+
+.hagora-filter-pill.active {
+    background: #c2185b;
+    border-color: #c2185b;
+    color: #ffffff;
+}
+
+.hagora-price-pill.active {
+    background: #fce4ec;
+    border-color: #e7b7c9;
+    color: #c2185b;
+    font-weight: 600;
+}
+
+/* Product Page Pagination */
+.hagora-pagination {
+    gap: 8px;
+}
+
+.hagora-pagination .page-item .page-link {
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c2185b;
+    background-color: #fce4ec;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hagora-pagination .page-item .page-link:hover {
+    color: white;
+    background-color: #c2185b;
+    transform: translateY(-2px);
+}
+
+.hagora-pagination .page-item.active .page-link {
+    color: white;
+    background-color: #c2185b;
+}
+
+.hagora-pagination .page-item.disabled .page-link {
+    color: #adb5bd;
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/*Cart Overlay*/
+
+.hagora-cart-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.hagora-product-card:hover .hagora-cart-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hagora-quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #f1dce5;
+    border-radius: 50px;
+    padding: 6px 10px;
+    box-shadow: 0 6px 20px rgba(194, 24, 91, 0.12);
+}
+
+.hagora-quantity-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #fce4ec;
+    color: #c2185b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.hagora-quantity-btn:hover {
+    background: #c2185b;
+    color: white;
+    transform: scale(1.08);
+}
+
+.hagora-quantity {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: #333;
+}
+
+.hagora-remove-btn {
+    border: none;
+    background: transparent;
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.hagora-remove-btn:hover {
+    color: #a71d2a;
+    transform: translateY(-1px);
+}
+
+/* Card Hover*/
+.hagora-product-card {
+    transition: transform 0.35s ease;
+}
+
+.hagora-product-card .card {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.35s ease;
+}
+
+.hagora-product-card:hover {
+    transform: translateY(-7px);
+}
+
+.hagora-product-card:hover .card {
+    box-shadow: 0 18px 40px rgba(194, 24, 91, 0.14);
+}
+
+.hagora-product-img {
+    transition: transform 0.45s ease;
+}
+
+.hagora-product-card:hover .hagora-product-img {
+    transform: scale(1.06);
+}
+
+.hagora-details-btn {
+    transition: all 0.3s ease;
+}
+
+.hagora-details-btn:hover {
+    background-color: #a3154d !important;
+    transform: translateY(-1px);
+}
+
+.hagora-cart-btn {
+    transition: all 0.3s ease;
+}
+
+.hagora-cart-btn:hover:not(:disabled) {
+    transform: scale(1.08);
+}
+
+.hagora-product-card:hover .hagora-product-image {
+    background-color: #f9d7e2 !important;
+}
+
+/* Search Page */
+.search-box {
+    padding: 60px 0;
+}
+
+.search-input {
+    background: #f1f3f6;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 55px 14px 20px;
+    font-size: 16px;
+}
+
+.search-input:focus {
+    background: #f1f3f6;
+    box-shadow: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c2185b;
+}
+
+.search-btn {
+    padding: 14px 35px;
+    background: #c2185b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.search-btn:hover {
+    background: #a3154d;
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        padding: 40px 0;
+    }
+
+    .search-btn {
+        padding: 12px 25px;
+    }
+}

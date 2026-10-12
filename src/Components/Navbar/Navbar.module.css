@@ -1,0 +1,247 @@
+.navbar {
+
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #f1e3e8;
+}
+
+.navbarInner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #c2185b;
+    text-decoration: none;
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: color 0.25s ease;
+}
+
+.logo:hover {
+    color: #a3154d;
+}
+
+.desktopLinks {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.navLink {
+    position: relative;
+    padding: 9px 16px;
+    border-radius: 999px;
+    color: #444;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.navLink:hover {
+    color: #c2185b;
+    background-color: #fff8fa;
+}
+
+.navLink.active {
+    color: #c2185b;
+    background-color: #fce4ec;
+}
+
+.navLink.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 18px;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #c2185b;
+    transform: translateX(-50%);
+}
+
+.desktopActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconButton {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff8fa;
+    border: 1px solid #f4e3e9;
+    color: #444;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.iconButton:hover {
+    color: #c2185b;
+    background-color: #fce4ec;
+    border-color: #f2ccd9;
+    transform: translateY(-2px);
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 50%;
+    background-color: #c2185b;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.mobileActions {
+    display: none;
+}
+
+.menuButton {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #f4e3e9;
+    border-radius: 50%;
+    background-color: #fff8fa;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+
+/* Mobile */
+
+.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 991px) {
+
+    .navbarInner {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.45rem;
+        margin: 0;
+    }
+
+    .desktopLinks,
+    .desktopActions {
+        display: none;
+    }
+
+    .mobileActions {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-left: auto;
+    }
+
+    .mobileMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+
+        border-top: 1px solid transparent;
+
+        transition:
+            max-height 0.3s ease,
+            opacity 0.25s ease,
+            padding 0.3s ease;
+    }
+
+    .mobileMenu.open {
+        max-height: 260px;
+        opacity: 1;
+        padding: 10px 0 16px;
+        border-top-color: #f3e5ea;
+    }
+
+    .mobileLink {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 10px;
+        color: #444;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+
+    .mobileLink:hover {
+        color: #c2185b;
+        background-color: #fff8fa;
+    }
+
+    .mobileLink.mobileActive {
+        color: #c2185b;
+        background-color: #fce4ec;
+        font-weight: 600;
+    }
+}
+
+
+/* Small Mobile */
+
+@media (max-width: 576px) {
+
+    .navbarInner {
+        min-height: 62px;
+    }
+
+    .logo {
+        font-size: 1.28rem;
+        letter-spacing: 1.2px;
+    }
+
+    .mobileActions {
+        gap: 5px;
+    }
+
+    .iconButton,
+    .menuButton {
+        width: 35px;
+        height: 35px;
+    }
+
+    .iconButton {
+        font-size: 13px;
+    }
+
+    .menuButton {
+        font-size: 15px;
+    }
+}

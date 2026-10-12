@@ -1,0 +1,99 @@
+.formCard {
+    padding: 40px;
+    border: 1px solid #f3dce5;
+    border-radius: 24px;
+    background-color: #fce4ec;
+    box-shadow: 0 15px 40px rgba(194, 24, 91, 0.06);
+}
+
+.formHeader {
+    margin-bottom: 30px;
+}
+
+.formHeader span {
+    display: block;
+    margin-bottom: 10px;
+    color: #c2185b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.formHeader h3 {
+    margin: 0;
+    color: #222;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.formCard label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formCard input,
+.formCard textarea {
+    width: 100%;
+    border: 1px solid #eadde2;
+    border-radius: 12px;
+    padding: 13px 15px;
+    outline: none;
+    background-color: #ffffff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.formCard input {
+    height: 48px;
+}
+
+.formCard textarea {
+    resize: none;
+}
+
+.formCard input:focus,
+.formCard textarea:focus {
+    border-color: #c2185b;
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.08);
+}
+
+.formCard input::placeholder,
+.formCard textarea::placeholder {
+    color: #aaa;
+}
+
+.formCard button {
+    border: none;
+    padding: 13px 24px;
+    border-radius: 10px;
+    background-color: #c2185b;
+    color: #ffffff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.formCard button i {
+    margin-left: 10px;
+}
+
+.formCard button:hover {
+    background-color: #a3154d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(194, 24, 91, 0.2);
+}
+
+@media (max-width: 576px) {
+
+    .formCard {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .formHeader h3 {
+        font-size: 1.4rem;
+    }
+
+}

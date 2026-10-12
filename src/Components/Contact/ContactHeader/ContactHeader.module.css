@@ -1,0 +1,52 @@
+.header {
+    max-width: 700px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #c2185b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.header h1 {
+    margin-bottom: 18px;
+    color: #222;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.header p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+    .header {
+        margin-bottom: 50px;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+}

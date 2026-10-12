@@ -1,0 +1,75 @@
+.stats {
+    width: 100%;
+}
+
+.stat {
+    padding: 20px 12px;
+    text-align: center;
+}
+
+.stat h3 {
+    margin: 0 0 8px;
+    color: #c2185b;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.hero {
+    padding-top: 14px;
+    border-top: 1px solid #f4dce7;
+}
+
+.hero .stat {
+    text-align: left;
+    padding: 14px 8px 12px;
+    border-bottom: 1px solid #f4dce7;
+    min-height: 92px;
+}
+
+.hero .stat h3 {
+    font-size: 1.8rem;
+    color: #c2185b;
+    margin-bottom: 6px;
+}
+
+.hero .stat p {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6c757d;
+}
+
+.about {
+    padding: 70px 0;
+}
+
+.about .stat h3 {
+    font-size: 2.3rem;
+}
+
+.about .stat p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    .hero .stat {
+        text-align: center;
+    }
+
+    .hero .stat h3,
+    .about .stat h3 {
+        font-size: 1.8rem;
+    }
+
+    .about {
+        padding: 50px 0;
+    }
+}

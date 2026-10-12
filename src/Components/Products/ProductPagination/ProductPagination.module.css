@@ -1,0 +1,14 @@
+@media (max-width: 576px) {
+
+    .pagination {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pagination button {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+}

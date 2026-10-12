@@ -1,0 +1,56 @@
+.story {
+    padding: 80px 0;
+    border-top: 1px solid #f1f1f1;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #c2185b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.title {
+    margin: 0;
+    color: #222;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.text {
+    margin-bottom: 20px;
+    color: #6c757d;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.text:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+    .story {
+        padding: 60px 0;
+    }
+
+    .title {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .story {
+        padding: 50px 0;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+}
