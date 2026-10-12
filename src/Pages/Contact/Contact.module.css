@@ -1,9 +1,43 @@
-.contact {
-    padding: 70px 0 90px;
+/* Applied to <body> by Contact.tsx while this page is mounted */
+.pageBg {
+    background-color: #fff0f5;
+    background-image: linear-gradient(135deg, #fce4ec 0%, #fff0f5 50%, #f8bbd0 100%);
+    background-attachment: fixed;
 }
 
-@media (max-width: 576px) {
-    .contact {
-        padding: 45px 0 60px;
+/* Design tokens: every Contact component inherits these.
+   Width, side padding, Navbar and Footer come from your Layout. */
+.contact {
+    --hg-ink: #2b2024;
+    --hg-muted: #7d6a71;
+    --hg-rose: #c2185b;
+    --hg-rose-dark: #880e4f;
+    --hg-wine: #880e4f;
+    --hg-blush: #f8bbd0;
+    --hg-line: #f5d0de;
+    --hg-error: #c0392b;
+    --hg-success: #3f9d5a;
+    --hg-serif: 'Fraunces', Georgia, serif;
+    --hg-sans: 'Manrope', system-ui, sans-serif;
+
+    padding: clamp(8px, 3vw, 32px) 0 clamp(40px, 6vw, 80px);
+    color: var(--hg-ink);
+    font-family: var(--hg-sans);
+}
+
+/* CSS grid instead of Bootstrap's row/col, so there are no negative
+   margins fighting the Layout's px-4 padding */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: clamp(32px, 5vw, 56px);
+}
+
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: 5fr 7fr;
+        gap: 40px;
+        align-items: stretch;
     }
 }

@@ -1,3 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+    --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --color-hagora-rose: #c2185b;
+    --color-hagora-petal: #fce4ec;
+    --color-hagora-ink: #292421;
+    --color-hagora-muted: #746c67;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -32,10 +42,4 @@ input,
 select,
 textarea {
     font-family: inherit;
-}
-
-@media (max-width: 575.98px) {
-    .row.g-5 {
-        --bs-gutter-x: 1.5rem;
-    }
 }

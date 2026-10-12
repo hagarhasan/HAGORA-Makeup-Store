@@ -1,247 +1,619 @@
-.navbar {
-
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #f1e3e8;
+.navbar, .mobileMenuDrawer {
+    --hg-ink: #302429;
+    --hg-muted: #907c83;
+    --hg-pink: #c2185b;
+    --hg-pink-deep: #c2185b;
+    --hg-pink-darker: #880e4f;
+    --hg-blush: #f8bbd0;
+    --hg-tint: #fce4ec;
+    --hg-line: #f5d0de;
+    --hg-serif: Georgia, serif;
+    --hg-sans: system-ui, sans-serif;
 }
 
-.navbarInner {
-    min-height: 76px;
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
+    background: rgba(255, 250, 251, 0.92);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    font-family: var(--hg-sans);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 76px;
+    transition: height 0.25s ease;
 }
 
+/* ---------- Logo ---------- */
 .logo {
-    color: #c2185b;
+    display: inline-flex;
+    align-items: flex-start;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--hg-pink-deep);
     text-decoration: none;
-    font-size: 1.65rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    transition: color 0.25s ease;
+    transition: color 0.2s ease;
 }
 
 .logo:hover {
-    color: #a3154d;
+    color: var(--hg-pink-darker);
 }
 
+.flower {
+    margin: -2px 0 0 2px;
+    font-size: 12px;
+    letter-spacing: 0;
+    color: var(--hg-pink);
+    transition: transform 0.6s ease;
+}
+
+.logo:hover .flower {
+    transform: rotate(180deg);
+}
+
+/* ---------- Desktop links ---------- */
 .desktopLinks {
-    display: flex;
+    display: none;
     align-items: center;
-    gap: 4px;
 }
 
 .navLink {
     position: relative;
-    padding: 9px 16px;
-    border-radius: 999px;
-    color: #444;
+    margin: 0 16px;
+    padding: 8px 2px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--hg-muted);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition:
-        color 0.25s ease,
-        background-color 0.25s ease;
+    transition: color 0.2s ease;
 }
 
-.navLink:hover {
-    color: #c2185b;
-    background-color: #fff8fa;
-}
-
-.navLink.active {
-    color: #c2185b;
-    background-color: #fce4ec;
-}
-
-.navLink.active::after {
+.navLink::after {
     content: '';
     position: absolute;
-    left: 50%;
-    bottom: 4px;
-    width: 18px;
+    right: 0;
+    bottom: 0;
+    left: 0;
     height: 2px;
-    border-radius: 10px;
-    background-color: #c2185b;
-    transform: translateX(-50%);
+    border-radius: 2px;
+    background: var(--hg-pink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
 }
 
-.desktopActions {
+.navLink:hover,
+.navLink.active {
+    color: var(--hg-pink-deep);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+    transform: scaleX(1);
+}
+
+/* ---------- Actions ---------- */
+.actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .iconButton {
     position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff8fa;
-    border: 1px solid #f4e3e9;
-    color: #444;
-    text-decoration: none;
-    transition: all 0.25s ease;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--hg-line);
+    border-radius: 50%;
+    background: #fff;
+    font-size: 16px;
+    color: var(--hg-ink);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), width 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
 }
 
 .iconButton:hover {
-    color: #c2185b;
-    background-color: #fce4ec;
-    border-color: #f2ccd9;
-    transform: translateY(-2px);
+    border-color: var(--hg-pink);
+    background: var(--hg-tint);
+    color: var(--hg-pink-deep);
+}
+
+.cartButton {
+    border-color: transparent;
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+    color: #fff;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.actionVisible {
+    transform: scale(1);
+    opacity: 1;
+    width: 42px;
+    margin-left: 0;
+    visibility: visible;
+}
+
+.actionHidden {
+    transform: scale(0);
+    opacity: 0;
+    width: 0;
+    margin-left: -8px;
+    /* Counteract gap when hidden */
+    padding: 0;
+    border: none;
+    visibility: hidden;
+}
+
+.cartButton:hover {
+    border-color: transparent;
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+    color: #fff;
+    filter: brightness(1.1);
 }
 
 .badge {
     position: absolute;
-    top: -4px;
-    right: -4px;
-    min-width: 18px;
-    height: 18px;
-    padding: 0 4px;
-    border-radius: 50%;
-    background-color: #c2185b;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border: 2px solid #fffafb;
+    border-radius: 999px;
+    background: var(--hg-ink);
+    font-size: 10px;
     font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
 }
 
-.mobileActions {
-    display: none;
+.navLink:focus-visible,
+.mobileLink:focus-visible,
+.iconButton:focus-visible,
+.logo:focus-visible {
+    outline: 2px solid var(--hg-pink-deep);
+    outline-offset: 3px;
 }
 
-.menuButton {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #f4e3e9;
+/* ---------- Mobile menu ---------- */
+.mobileMenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(48, 36, 41, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobileMenuOverlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobileMenuDrawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    max-width: 85vw;
+    background: #fffafb;
+    box-shadow: -8px 0 32px rgba(48, 36, 41, 0.15);
+    z-index: 1050;
+    overflow-y: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileMenuDrawer.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0s;
+}
+
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--hg-line);
+}
+
+.drawerLogo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--hg-pink-deep);
+}
+
+.drawerClose {
+    width: 36px;
+    height: 36px;
+    border: none;
     border-radius: 50%;
-    background-color: #fff8fa;
-    color: #444;
+    background: var(--hg-tint);
+    color: var(--hg-pink-deep);
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-
-/* Mobile */
-
-.mobileMenu {
-    display: none;
+.drawerClose:hover {
+    background: #f8bbd0;
+    transform: scale(1.1);
 }
 
-@media (max-width: 991px) {
+.mobileInner {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px;
+    flex-grow: 1;
+}
 
-    .navbarInner {
-        min-height: 68px;
+.mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileBottomSection {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px dashed var(--hg-line);
+}
+
+.mobileIcon {
+    display: inline-block;
+    width: 28px;
+    margin-right: 12px;
+    text-align: center;
+    color: var(--hg-muted);
+    font-size: 20px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobileLink:hover .mobileIcon,
+.mobileLink.active .mobileIcon,
+.mobileAccountLink:hover .mobileIcon {
+    color: var(--hg-pink-deep);
+    transform: scale(1.1);
+}
+
+.mobileLink {
+    padding: 16px 20px;
+    margin: 4px 0;
+    border-bottom: none;
+    border-radius: 16px;
+    font-family: var(--hg-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--hg-ink);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    background: transparent;
+}
+
+.mobileLink:hover {
+    padding-left: 24px;
+    background: var(--hg-tint);
+    color: var(--hg-pink-deep);
+}
+
+.mobileLink.active {
+    color: var(--hg-pink-deep);
+    background: var(--hg-tint);
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 992px) {
+    .inner {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .desktopLinks {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
-    .logo {
-        font-size: 1.45rem;
-        margin: 0;
+    .actions {
+        justify-self: end;
     }
 
-    .desktopLinks,
-    .desktopActions {
+    .menuButton,
+    .mobileMenu {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .mobileMenu,
+    .inner,
+    .flower,
+    .navLink::after {
+        transition: none;
+    }
+}
+
+
+.account {
+    position: relative;
+}
+
+.accountButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 230px;
+    padding: 10px 12px;
+    border: 1px solid var(--hg-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--hg-ink);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.accountButton:hover {
+    border-color: var(--hg-pink);
+    background: var(--hg-tint);
+}
+
+.accountName {
+    overflow: hidden;
+    max-width: 130px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.accountButton i:last-child {
+    transition: transform 0.2s ease;
+}
+
+.accountMenu {
+    position: absolute;
+    z-index: 9999;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 240px;
+    padding: 8px;
+    border: 1px solid var(--hg-line);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgb(48 36 41 / 12%);
+}
+
+.accountInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px;
+    border-bottom: 1px solid var(--hg-line);
+}
+
+.accountGreeting {
+    color: var(--hg-muted);
+    font-size: 12px;
+}
+
+.accountEmail {
+    overflow-wrap: anywhere;
+    color: var(--hg-ink);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.accountLink,
+.logoutButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--hg-ink);
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.accountLink:hover {
+    background: var(--hg-tint);
+    color: var(--hg-pink-deep);
+}
+
+.logoutButton {
+    margin-top: 5px;
+    border-top: 1px solid var(--hg-line);
+    border-radius: 0 0 9px 9px;
+    color: #b42318;
+}
+
+.logoutButton:hover {
+    background: #fff1f0;
+}
+
+.authActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loginLink,
+.registerLink {
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.loginLink {
+    color: var(--hg-pink-deep);
+}
+
+.loginLink:hover {
+    background: var(--hg-tint);
+}
+
+.registerLink {
+    background: var(--hg-pink-deep);
+    color: #fff;
+}
+
+.registerLink:hover {
+    background: var(--hg-pink-darker);
+}
+
+.mobileAccountHeading {
+    padding: 0 20px 12px;
+    color: var(--hg-pink-deep);
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mobileAccountLink {
+    display: block;
+    padding: 12px 20px;
+    margin: 4px 0;
+    border-radius: 12px;
+    border-bottom: none;
+    background: transparent;
+    color: var(--hg-ink);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobileAccountLink:hover {
+    padding-left: 24px;
+    background: var(--hg-tint);
+    color: var(--hg-pink-deep);
+}
+
+.mobileLogout {
+    margin-top: 12px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: #b42318;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogout:hover {
+    background: #fff1f0;
+}
+
+.mobileAuth {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mobileLoginBtn,
+.mobileRegisterBtn {
+    padding: 14px 20px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobileLoginBtn {
+    color: var(--hg-pink-deep);
+    border: 1px solid var(--hg-pink-deep);
+    background: transparent;
+}
+
+.mobileLoginBtn:hover {
+    background: var(--hg-tint);
+}
+
+.mobileRegisterBtn {
+    background: var(--hg-pink-deep);
+    color: #fff;
+}
+
+.mobileRegisterBtn:hover {
+    background: var(--hg-pink-darker);
+}
+
+@media (max-width: 576px) {
+    .hideOnMobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .accountName {
         display: none;
     }
 
-    .mobileActions {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        margin-left: auto;
-    }
-
-    .mobileMenu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
+    .accountButton {
+        width: 42px;
+        height: 42px;
+        justify-content: center;
         padding: 0;
-
-        border-top: 1px solid transparent;
-
-        transition:
-            max-height 0.3s ease,
-            opacity 0.25s ease,
-            padding 0.3s ease;
     }
 
-    .mobileMenu.open {
-        max-height: 260px;
-        opacity: 1;
-        padding: 10px 0 16px;
-        border-top-color: #f3e5ea;
+    .accountButton i:last-child {
+        display: none;
     }
 
-    .mobileLink {
-        width: 100%;
-        padding: 12px 15px;
-        border-radius: 10px;
-        color: #444;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-        text-align: center;
-        transition: all 0.2s ease;
+    .authActions {
+        gap: 2px;
     }
 
-    .mobileLink:hover {
-        color: #c2185b;
-        background-color: #fff8fa;
-    }
-
-    .mobileLink.mobileActive {
-        color: #c2185b;
-        background-color: #fce4ec;
-        font-weight: 600;
-    }
-}
-
-
-/* Small Mobile */
-
-@media (max-width: 576px) {
-
-    .navbarInner {
-        min-height: 62px;
-    }
-
-    .logo {
-        font-size: 1.28rem;
-        letter-spacing: 1.2px;
-    }
-
-    .mobileActions {
-        gap: 5px;
-    }
-
-    .iconButton,
-    .menuButton {
-        width: 35px;
-        height: 35px;
-    }
-
-    .iconButton {
-        font-size: 13px;
-    }
-
-    .menuButton {
-        font-size: 15px;
+    .loginLink,
+    .registerLink {
+        padding: 9px 8px;
+        font-size: 12px;
     }
 }

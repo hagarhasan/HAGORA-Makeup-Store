@@ -1,121 +1,159 @@
-.infoSection {
-    padding: 20px 10px;
+.panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding: clamp(28px, 4vw, 44px);
+    border-radius: 28px;
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+    color: #fff;
 }
 
-.smallLabel {
-    display: inline-block;
-    margin-bottom: 14px;
-    color: #c2185b;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
+/* one soft shade swatch in the corner */
+.panel::after {
+    content: '';
+    position: absolute;
+    right: -90px;
+    bottom: -90px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.12;
+    pointer-events: none;
 }
 
-.infoSection h2 {
-    margin-bottom: 16px;
-    color: #222;
-    font-size: 2.2rem;
-    font-weight: 700;
+.panel>* {
+    position: relative;
+    z-index: 1;
+}
+
+.panel h2 {
+    margin: 0;
+    font-family: var(--hg-serif);
+    font-size: clamp(28px, 3.4vw, 36px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
 }
 
 .description {
-    max-width: 480px;
-    margin-bottom: 35px;
-    color: #6c757d;
-    line-height: 1.8;
+    margin: 14px 0 0;
+    max-width: 380px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
 }
 
-.infoList {
+.list {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 6px;
+    margin: 32px -12px 0;
+    padding: 0;
+    list-style: none;
 }
 
-.infoItem {
+.item {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 16px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
+    padding: 12px;
+    border-radius: 18px;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
-.infoItem:hover {
-    background-color: #fff8fa;
-    transform: translateX(5px);
+.link:hover,
+.link:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+.link:focus-visible {
+    box-shadow: 0 0 0 2px #fff;
 }
 
 .icon {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
     display: flex;
+    flex: none;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background-color: #fce4ec;
-    color: #c2185b;
-    font-size: 17px;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.infoItem h6 {
-    margin-bottom: 4px;
-    color: #222;
-    font-weight: 700;
+.link:hover .icon,
+.link:focus-visible .icon {
+    background: var(--hg-blush);
+    color: var(--hg-wine);
 }
 
-.infoItem p {
-    margin: 0;
-    color: #6c757d;
-    font-size: 14px;
+.itemTitle {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.itemText {
+    display: block;
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    word-break: break-word;
 }
 
 .socials {
-    margin-top: 40px;
-    padding-top: 25px;
-    border-top: 1px solid #f1f1f1;
+    margin-top: auto;
+    padding-top: 36px;
 }
 
 .socials>span {
-    display: block;
-    margin-bottom: 14px;
-    color: #222;
     font-size: 14px;
     font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .socialLinks {
     display: flex;
     gap: 10px;
+    margin-top: 12px;
 }
 
 .socialLinks a {
-    width: 38px;
-    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    background-color: #fce4ec;
-    color: #c2185b;
+    color: #fff;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.socialLinks a:hover {
-    background-color: #c2185b;
-    color: #ffffff;
-    transform: translateY(-3px);
+.socialLinks a:hover,
+.socialLinks a:focus-visible {
+    background: #fff;
+    color: var(--hg-wine);
+    outline: none;
+    transform: translateY(-2px);
 }
 
-@media (max-width: 991px) {
-    .infoSection {
-        padding: 0;
-    }
+.socialLinks a:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 576px) {
-    .infoSection h2 {
-        font-size: 1.8rem;
+@media (prefers-reduced-motion: reduce) {
+    .socialLinks a:hover {
+        transform: none;
     }
 }

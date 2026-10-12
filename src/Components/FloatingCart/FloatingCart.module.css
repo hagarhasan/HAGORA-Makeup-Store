@@ -14,13 +14,25 @@
     font-size: 22px;
     box-shadow: 0 8px 25px rgba(194, 24, 91, 0.3);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floatingCart.visible {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.floatingCart.hidden {
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .floatingCart:hover {
     background-color: #a3154d;
     color: #ffffff;
-    transform: translateY(-4px);
+    transform: scale(1.1) translateY(-4px);
 }
 
 .badge {

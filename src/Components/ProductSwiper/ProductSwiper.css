@@ -1,0 +1,85 @@
+/* Custom Swiper Wrapper to contain navigation arrows */
+.product-swiper-wrapper {
+    /* No overflow hidden here so arrows can hang out if needed */
+}
+
+/* Add padding inside the swiper so card box-shadows don't get clipped */
+.product-swiper-wrapper .swiper {
+    padding: 20px 10px 60px 10px !important;
+}
+
+/* Hide default swiper arrows just in case */
+.product-swiper-wrapper .swiper-button-next,
+.product-swiper-wrapper .swiper-button-prev {
+    display: none !important;
+}
+
+/* Custom Navigation Buttons */
+.swiper-custom-prev,
+.swiper-custom-next {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border: 1px solid rgba(194, 24, 91, 0.1);
+    box-shadow: 0 4px 20px rgba(194, 24, 91, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c2185b;
+    font-size: 20px;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.swiper-custom-prev:hover,
+.swiper-custom-next:hover {
+    background: #c2185b;
+    color: #ffffff;
+    box-shadow: 0 6px 25px rgba(194, 24, 91, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.swiper-custom-prev {
+    left: 0;
+}
+
+.swiper-custom-next {
+    right: 0;
+}
+
+/* Pagination bullets */
+.product-swiper-wrapper .swiper-pagination {
+    bottom: 0px !important;
+}
+
+.product-swiper-wrapper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    opacity: 0.6;
+    transition: all 0.4s ease;
+    margin: 0 5px !important;
+}
+
+.product-swiper-wrapper .swiper-pagination-bullet-active {
+    background: #c2185b;
+    width: 24px;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.product-swiper-wrapper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+.product-swiper-wrapper .swiper-slide > * {
+    width: 100%;
+}
+
+

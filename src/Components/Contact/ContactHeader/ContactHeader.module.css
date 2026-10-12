@@ -1,52 +1,58 @@
 .header {
-    max-width: 700px;
-    margin: 0 auto 70px;
-    text-align: center;
-}
-
-.label {
-    display: inline-block;
-    margin-bottom: 14px;
-    color: #c2185b;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    max-width: 640px;
 }
 
 .header h1 {
-    margin-bottom: 18px;
-    color: #222;
-    font-size: 3rem;
-    font-weight: 700;
+    margin: 0;
+    font-family: var(--hg-serif);
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--hg-ink);
 }
 
 .header p {
-    margin: 0;
-    color: #6c757d;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    margin: 20px 0 0;
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--hg-muted);
 }
 
-@media (max-width: 991px) {
-    .header {
-        margin-bottom: 50px;
-    }
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 8px 16px;
+    border: 1px solid var(--hg-line);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--hg-ink);
+}
 
-    .header h1 {
-        font-size: 2.5rem;
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--hg-success);
+    box-shadow: 0 0 0 0 rgba(63, 157, 90, 0.5);
+    animation: pulse 2.4s ease-out infinite;
+}
+
+@keyframes pulse {
+
+    70%,
+    100% {
+        box-shadow: 0 0 0 8px rgba(63, 157, 90, 0);
     }
 }
 
-@media (max-width: 576px) {
-    .header {
-        margin-bottom: 40px;
-    }
-
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    .header p {
-        font-size: 1rem;
+@media (prefers-reduced-motion: reduce) {
+    .dot {
+        animation: none;
     }
 }

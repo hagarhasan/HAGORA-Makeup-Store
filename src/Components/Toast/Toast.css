@@ -1,0 +1,168 @@
+.hagora-toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    max-width: 420px;
+    width: auto;
+    pointer-events: none;
+}
+
+.hagora-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid #f8bbd0;
+    border-radius: 18px;
+    box-shadow: 
+        0 14px 34px -4px rgba(194, 24, 91, 0.16),
+        0 4px 14px -2px rgba(136, 14, 79, 0.08);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    animation: hagoraToastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hagora-toast.exiting {
+    animation: hagoraToastSlideOut 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.hagora-toast-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fce4ec 0%, #fff0f5 100%);
+    border: 1px solid #f8bbd0;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.hagora-toast-body {
+    flex: 1;
+    min-width: 0;
+    padding-top: 1px;
+}
+
+.hagora-toast-title {
+    margin: 0;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2b2024;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.hagora-toast-message {
+    margin: 3px 0 0;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #7d6a71;
+    line-height: 1.45;
+}
+
+.hagora-toast-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: -4px -6px 0 0;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #a8969c;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hagora-toast-close:hover {
+    background: #fce4ec;
+    color: #c2185b;
+}
+
+.hagora-toast-close:focus-visible {
+    outline: 2px solid #c2185b;
+    outline-offset: 2px;
+}
+
+@keyframes hagoraToastSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hagoraToastSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.96);
+    }
+}
+
+@media (max-width: 640px) {
+    .hagora-toast-container {
+        top: 16px;
+        right: 14px;
+        left: 14px;
+        max-width: none;
+        width: auto;
+    }
+
+    .hagora-toast {
+        padding: 14px 16px;
+    }
+
+    .hagora-toast-icon-wrap {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .hagora-toast-title {
+        font-size: 14px;
+    }
+
+    .hagora-toast-message {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hagora-toast {
+        animation: hagoraToastFadeIn 0.2s ease-out forwards;
+    }
+
+    .hagora-toast.exiting {
+        animation: hagoraToastFadeOut 0.2s ease-in forwards;
+    }
+
+    @keyframes hagoraToastFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes hagoraToastFadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+}

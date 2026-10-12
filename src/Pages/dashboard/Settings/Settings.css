@@ -1,0 +1,511 @@
+.settings-page {
+    width: 100%;
+    max-width: 760px;
+    padding-bottom: 32px;
+    color: #33252d;
+}
+
+/* ---------- Heading ---------- */
+.settings-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.settings-eyebrow {
+    margin: 0;
+    color: #c05a83;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.settings-heading h2 {
+    margin: 0;
+    font-size: clamp(1.65rem, 3vw, 2rem);
+    font-weight: 700;
+}
+
+.settings-heading>p:last-child {
+    margin: 0;
+    color: #85747d;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ---------- Cards ---------- */
+.settings-card {
+    margin-bottom: 20px;
+    padding: 26px 28px;
+    background: #fff;
+    border: 1px solid #f0e5eb;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgb(77 35 54 / 4%);
+}
+
+.settings-section-heading {
+    margin-bottom: 8px;
+}
+
+.settings-section-heading h3 {
+    margin: 0 0 6px;
+    color: #3d2b35;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.settings-section-heading p {
+    margin: 0;
+    color: #91818a;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* ---------- Rows ---------- */
+.settings-rows {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f3ebef;
+}
+
+.settings-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.settings-row.is-editing {
+    display: block;
+}
+
+.settings-row-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settings-row-label {
+    color: #91818a;
+    font-size: 0.78rem;
+    font-weight: 650;
+}
+
+.settings-row-text strong {
+    color: #35242c;
+    font-size: 0.95rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.settings-dots {
+    letter-spacing: 0.15em;
+}
+
+/* ---------- Edit form ---------- */
+.settings-row-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.settings-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings-field label {
+    color: #51414a;
+    font-size: 0.82rem;
+    font-weight: 650;
+}
+
+.settings-input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 14px;
+    color: #35242c;
+    background: #fffdfd;
+    border: 1px solid #eadde2;
+    border-radius: 10px;
+    outline: none;
+    font: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.settings-input:focus {
+    border-color: #d96c91;
+    box-shadow: 0 0 0 3px rgb(217 108 145 / 12%);
+}
+
+/* Password input with the eye button inside */
+.settings-password-wrap {
+    position: relative;
+}
+
+.settings-password-wrap .settings-input {
+    padding-right: 46px;
+}
+
+.settings-eye-button {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    color: #91818a;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.settings-eye-button:hover {
+    color: #c6537c;
+}
+
+/* ---------- Strength meter ---------- */
+.settings-strength {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -4px;
+}
+
+.settings-strength-bars {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.settings-strength-bars span {
+    height: 6px;
+    background: #eee5e9;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.settings-strength-bars.level-1 span:nth-child(-n + 1) {
+    background: #d64550;
+}
+
+.settings-strength-bars.level-2 span:nth-child(-n + 2) {
+    background: #e8a13a;
+}
+
+.settings-strength-bars.level-3 span:nth-child(-n + 3) {
+    background: #8bb84a;
+}
+
+.settings-strength-bars.level-4 span:nth-child(-n + 4) {
+    background: #2d7a52;
+}
+
+.settings-strength-label {
+    min-width: 52px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+.settings-strength-label.level-1 {
+    color: #d64550;
+}
+
+.settings-strength-label.level-2 {
+    color: #c9831c;
+}
+
+.settings-strength-label.level-3 {
+    color: #6b9a2f;
+}
+
+.settings-strength-label.level-4 {
+    color: #2d7a52;
+}
+
+/* ---------- Requirements checklist ---------- */
+.settings-rules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.settings-rules li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #91818a;
+    font-size: 0.8rem;
+}
+
+.settings-rules li.ok {
+    color: #2d7a52;
+}
+
+.settings-rule-icon {
+    display: grid;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    place-items: center;
+    color: #fff;
+    background: #fff;
+    border: 1.5px solid #dccdd4;
+    border-radius: 50%;
+    font-size: 0.55rem;
+}
+
+.settings-rules li.ok .settings-rule-icon {
+    background: #2d7a52;
+    border-color: #2d7a52;
+}
+
+/* ---------- Buttons ---------- */
+.settings-edit-button {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 8px;
+    min-height: 36px;
+    padding: 0 14px;
+    color: #b74770;
+    background: #fff4f7;
+    border: 1px solid #edc5d4;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.settings-edit-button:hover:not(:disabled) {
+    color: #fff;
+    background: #c6537c;
+    border-color: #c6537c;
+}
+
+.settings-edit-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.settings-save-button,
+.settings-cancel-button {
+    min-height: 42px;
+    padding: 0 22px;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.settings-save-button {
+    color: #fff;
+    background: #d96c91;
+    border: 0;
+    transition: background 0.2s;
+}
+
+.settings-save-button:hover:not(:disabled) {
+    background: #c6537c;
+}
+
+.settings-cancel-button {
+    color: #75636c;
+    background: #fff;
+    border: 1px solid #eadde2;
+}
+
+.settings-cancel-button:hover:not(:disabled) {
+    background: #faf6f8;
+}
+
+.settings-save-button:disabled,
+.settings-cancel-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.settings-link-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    margin-top: 20px;
+    padding: 0 18px;
+    color: #b74770;
+    background: #fff4f7;
+    border: 1px solid #edc5d4;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.settings-link-button:hover {
+    color: #fff;
+    background: #b74770;
+    border-color: #b74770;
+}
+
+.settings-edit-button:focus-visible,
+.settings-save-button:focus-visible,
+.settings-cancel-button:focus-visible,
+.settings-link-button:focus-visible,
+.settings-eye-button:focus-visible,
+.settings-option input:focus-visible {
+    outline: 2px solid #c6537c;
+    outline-offset: 3px;
+}
+
+/* ---------- Messages ---------- */
+.settings-message {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.settings-row-text .settings-message {
+    margin-top: 2px;
+}
+
+.settings-options+.settings-message {
+    margin-top: 18px;
+}
+
+.settings-message.success {
+    color: #2d7a52;
+}
+
+.settings-message.error {
+    color: #b13d4d;
+}
+
+.settings-hint {
+    margin: 0;
+    color: #85747d;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* ---------- Notifications ---------- */
+.settings-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #f3ebef;
+}
+
+.settings-option:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.settings-option>span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settings-option strong {
+    color: #493641;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.settings-option small {
+    color: #91818a;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.settings-option input {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: #c65c87;
+    cursor: pointer;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+    .settings-card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .settings-edit-button span {
+        display: none;
+        /* icon only to save space */
+    }
+
+    .settings-edit-button {
+        width: 38px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .settings-rules {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .settings-actions {
+        flex-direction: column-reverse;
+    }
+
+    .settings-actions button {
+        width: 100%;
+    }
+
+    .settings-link-button {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .settings-edit-button,
+    .settings-save-button,
+    .settings-link-button,
+    .settings-input,
+    .settings-strength-bars span {
+        transition: none;
+    }
+}

@@ -716,3 +716,14 @@
         padding: 12px 25px;
     }
 }
+
+.logo {
+    display: inline-flex;
+    align-items: flex-start;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--hagora-pink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}

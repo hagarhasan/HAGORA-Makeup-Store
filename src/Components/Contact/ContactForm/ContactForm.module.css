@@ -1,99 +1,233 @@
-.formCard {
-    padding: 40px;
-    border: 1px solid #f3dce5;
-    border-radius: 24px;
-    background-color: #fce4ec;
-    box-shadow: 0 15px 40px rgba(194, 24, 91, 0.06);
+.card {
+    height: 100%;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid var(--hg-line);
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 30px 60px -40px rgba(136, 14, 79, 0.35);
 }
 
-.formHeader {
-    margin-bottom: 30px;
-}
-
-.formHeader span {
-    display: block;
-    margin-bottom: 10px;
-    color: #c2185b;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.formHeader h3 {
+.title {
     margin: 0;
-    color: #222;
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-family: var(--hg-serif);
+    font-size: clamp(26px, 3vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--hg-ink);
 }
 
-.formCard label {
+.subtitle {
+    margin: 8px 0 28px;
+    font-size: 15px;
+    color: var(--hg-muted);
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border: 1px solid #f0b9bf;
+    border-radius: 12px;
+    background: #fff1f2;
+    font-size: 14px;
+    color: #9b2c3b;
+}
+
+/* ---------- Fields ---------- */
+.field label {
     display: block;
     margin-bottom: 8px;
-    color: #333;
     font-size: 14px;
     font-weight: 600;
+    color: var(--hg-ink);
 }
 
-.formCard input,
-.formCard textarea {
+.control {
     width: 100%;
-    border: 1px solid #eadde2;
-    border-radius: 12px;
-    padding: 13px 15px;
-    outline: none;
-    background-color: #ffffff;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.formCard input {
     height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--hg-line);
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+    font-size: 15px;
+    color: var(--hg-ink);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.formCard textarea {
-    resize: none;
+.control::placeholder {
+    color: #b9aab0;
 }
 
-.formCard input:focus,
-.formCard textarea:focus {
-    border-color: #c2185b;
-    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.08);
+.control:hover {
+    border-color: #dcc6cc;
 }
 
-.formCard input::placeholder,
-.formCard textarea::placeholder {
-    color: #aaa;
+.control:focus {
+    border-color: var(--hg-rose);
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.15);
 }
 
-.formCard button {
-    border: none;
-    padding: 13px 24px;
-    border-radius: 10px;
-    background-color: #c2185b;
-    color: #ffffff;
+.invalid,
+.invalid:hover {
+    border-color: #d9534f;
+}
+
+.select {
+    appearance: none;
+    padding-right: 44px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239c8a91' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 18px;
+}
+
+.placeholder {
+    color: #b9aab0;
+}
+
+.textarea {
+    height: auto;
+    min-height: 150px;
+    padding: 14px 16px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.count {
+    margin-left: auto;
+    font-size: 12px;
+    color: #a8969c;
+}
+
+.error {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--hg-error);
+}
+
+.meta .error {
+    margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.submit,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 50px;
+    padding: 0 28px;
+    border: 0;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 15px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.formCard button i {
-    margin-left: 10px;
+.submit {
+    width: 100%;
+    background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);
+    color: #fff;
 }
 
-.formCard button:hover {
-    background-color: #a3154d;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(194, 24, 91, 0.2);
+.submit:hover:not(:disabled) {
+    filter: brightness(1.1);
 }
 
-@media (max-width: 576px) {
+.submit:focus-visible,
+.secondary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.3);
+}
 
-    .formCard {
-        padding: 25px 20px;
-        border-radius: 20px;
+.submit:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.secondary {
+    margin-top: 24px;
+    border: 1px solid var(--hg-line);
+    background: #fff;
+    color: var(--hg-ink);
+}
+
+.secondary:hover {
+    border-color: var(--hg-rose);
+    color: var(--hg-rose);
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
+}
 
-    .formHeader h3 {
-        font-size: 1.4rem;
+/* ---------- Success ---------- */
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.successIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--hg-blush);
+    font-size: 24px;
+    color: var(--hg-wine);
+}
+
+.success h3 {
+    margin: 24px 0 0;
+    font-family: var(--hg-serif);
+    font-size: 32px;
+    font-weight: 600;
+    outline: none;
+}
+
+.success p {
+    max-width: 360px;
+    margin: 12px 0 0;
+    line-height: 1.65;
+    color: var(--hg-muted);
+}
+
+.success strong {
+    color: var(--hg-ink);
+    word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner {
+        animation-duration: 1.6s;
     }
-
 }
