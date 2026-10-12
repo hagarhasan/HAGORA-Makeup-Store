@@ -6,10 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import AuthInput from "../../Components/Auth/AuthInput/AuthInput";
 
-import AuthShadePanel, {
-    SHADES,
-    type Shade,
-} from "../../Components/Auth/AuthShadePanel/AuthShadePanel";
+import AuthShadePanel from "../../Components/Auth/AuthShadePanel/AuthShadePanel";
+import { SHADES, type Shade } from "../../types/shade";
 
 import PasswordField from "../../Components/Auth/PasswordField/PasswordField";
 

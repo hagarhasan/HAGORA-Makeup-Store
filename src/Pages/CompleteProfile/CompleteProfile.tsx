@@ -3,10 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import AuthInput from "../../Components/Auth/AuthInput/AuthInput";
 import AuthSelect from "../../Components/Auth/AuthSelect/AuthSelect";
-import AuthShadePanel, {
-    SHADES,
-    type Shade,
-} from "../../Components/Auth/AuthShadePanel/AuthShadePanel";
+import AuthShadePanel from "../../Components/Auth/AuthShadePanel/AuthShadePanel";
+import { SHADES, type Shade } from "../../types/shade";
 import { updateProfile } from "../../api/users/users";
 import { useAuthContext } from "../../Context/useAuthContext";
 import { useToast } from "../../Context/useToast";

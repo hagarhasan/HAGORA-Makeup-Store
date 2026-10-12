@@ -47,6 +47,7 @@ export default function Cart({ loading }: { loading: boolean }) {
     useEffect(() => {
         if (!user) return
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSelectedGovernorate(user.governorate ?? '')
         setCity(user.city ?? '')
         setAddress(user.address ?? '')
