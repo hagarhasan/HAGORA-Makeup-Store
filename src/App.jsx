@@ -72,7 +72,8 @@ export default function App() {
     )
   }
 
-  let router = createBrowserRouter([
+  const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+  const router = createBrowserRouter([
     {
       path: '/',
       element: <Layout />,
@@ -113,7 +114,7 @@ export default function App() {
         }
       ]
     }
-  ])
+  ], { basename: routerBasename })
 
   return (
     <CartProvider>

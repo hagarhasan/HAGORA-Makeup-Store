@@ -75,6 +75,10 @@ src/
   main.jsx      Application entry point and global styles
 ```
 
+## Deployment
+
+The production site is published with GitHub Pages at [hagarhasan.github.io/HAGORA-Makeup-Store](https://hagarhasan.github.io/HAGORA-Makeup-Store/). Every push to `main` runs the GitHub Actions workflow, checks the code with ESLint, builds the app for the repository path, and deploys the result. The workflow also publishes a fallback page so client-side routes can be refreshed directly.
+
 ## Data and Scope
 
 Product data is requested from the public [Makeup API](https://makeup-api.herokuapp.com/). Product loading therefore requires network access and depends on that service being available. If the service is unavailable, the storefront displays an error message instead of product results.
