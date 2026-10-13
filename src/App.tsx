@@ -193,7 +193,9 @@ export default function App() {
         },
       ],
     },
-  ])
+  ], {
+    basename: import.meta.env.BASE_URL,
+  })
 
   return (
     <AuthProvider>
