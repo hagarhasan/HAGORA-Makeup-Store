@@ -6,12 +6,14 @@ import type { Product } from '../../../types/product'
 export default function SearchResults({
     query,
     products,
+    totalResults,
     currentPage,
     numberOfPages,
     onPageChange
 }: {
     query: string
     products: Product[]
+    totalResults?: number
     currentPage: number
     numberOfPages: number
     onPageChange: (page: number) => void
@@ -54,7 +56,8 @@ export default function SearchResults({
                 </h5>
 
                 <p className="text-secondary">
-                    {products.length} products found
+                    {totalResults ?? products.length}{' '}
+                    {(totalResults ?? products.length) === 1 ? 'product' : 'products'} found
                 </p>
 
             </div>

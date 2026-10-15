@@ -4,11 +4,13 @@ import type { FormEvent, ChangeEvent } from 'react'
 export default function SearchBox({
     searchValue,
     onSearchChange,
-    onSearch
+    onSearch,
+    onClear
 }: {
     searchValue: string
     onSearchChange: (event: ChangeEvent<HTMLInputElement>) => void
     onSearch: (event: FormEvent<HTMLFormElement>) => void
+    onClear?: () => void
 }) {
 
     return (
@@ -30,6 +32,28 @@ export default function SearchBox({
                         value={searchValue}
                         onChange={onSearchChange}
                     />
+
+                    {searchValue && onClear && (
+                        <button
+                            type="button"
+                            onClick={onClear}
+                            aria-label="Clear search"
+                            style={{
+                                position: 'absolute',
+                                right: '50px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                background: 'transparent',
+                                border: 'none',
+                                color: '#999',
+                                cursor: 'pointer',
+                                padding: '4px 8px',
+                                fontSize: '14px',
+                            }}
+                        >
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                    )}
 
                 </div>
 

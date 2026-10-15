@@ -9,14 +9,21 @@ import { Helmet } from 'react-helmet-async'
 
 export default function Search({ products, loading }: { products: ProductType[]; loading: boolean }) {
 
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const query = searchParams.get('q') || ''
 
     const [searchValue, setSearchValue] = useState(query)
     const [currentPage, setCurrentPage] = useState(1)
+    const [prevQuery, setPrevQuery] = useState(query)
 
     const productsPerPage = 12
+
+    if (query !== prevQuery) {
+        setPrevQuery(query)
+        setSearchValue(query)
+        setCurrentPage(1)
+    }
 
     const searchResults = useMemo(() => {
 
@@ -89,7 +96,6 @@ export default function Search({ products, loading }: { products: ProductType[];
 
     function handleSearchChange(e: ChangeEvent<HTMLInputElement>) {
         setSearchValue(e.target.value)
-        setCurrentPage(1)
     }
 
     function handleSearch(e: FormEvent<HTMLFormElement>) {
@@ -98,25 +104,18 @@ export default function Search({ products, loading }: { products: ProductType[];
         const value = searchValue.trim()
 
         if (!value) {
-
-            window.history.pushState(
-                {},
-                '',
-                '/search'
-            )
-
-            window.location.reload()
-
-            return
+            setSearchParams({})
+        } else {
+            setSearchParams({ q: value })
         }
 
-        window.history.pushState(
-            {},
-            '',
-            `/search?q=${encodeURIComponent(value)}`
-        )
+        setCurrentPage(1)
+    }
 
-        window.location.reload()
+    function handleClear() {
+        setSearchValue('')
+        setSearchParams({})
+        setCurrentPage(1)
     }
 
     function handlePageChange(page: number) {
@@ -146,6 +145,7 @@ export default function Search({ products, loading }: { products: ProductType[];
                 searchValue={searchValue}
                 onSearchChange={handleSearchChange}
                 onSearch={handleSearch}
+                onClear={handleClear}
             />
 
             {loading ? (
@@ -168,6 +168,7 @@ export default function Search({ products, loading }: { products: ProductType[];
                 <SearchResults
                     query={query}
                     products={currentProducts}
+                    totalResults={searchResults.length}
                     currentPage={currentPage}
                     numberOfPages={numberOfPages}
                     onPageChange={handlePageChange}
