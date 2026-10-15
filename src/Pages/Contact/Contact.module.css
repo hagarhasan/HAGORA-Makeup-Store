@@ -25,6 +25,15 @@
     font-family: var(--hg-sans);
 }
 
+:global([data-theme="dark"]) .contact {
+    --hg-ink: #fdf2f8;
+    --hg-muted: #cca7be;
+    --hg-line: #3f1c44;
+    --hg-blush: #471940;
+    --hg-wine: #f472b6;
+    color: #fdf2f8;
+}
+
 /* CSS grid instead of Bootstrap's row/col, so there are no negative
    margins fighting the Layout's px-4 padding */
 .grid {

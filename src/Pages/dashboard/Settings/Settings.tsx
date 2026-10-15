@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEye, faEyeSlash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../../Context/useAuthContext";
+import { useTheme } from "../../../Context/useTheme";
 import {
     getNotificationPreferences,
     updateNotificationPreferences,
@@ -93,10 +94,11 @@ function PasswordInput({ id, label, value, onChange, autoComplete, autoFocus }: 
 /*
  * Who edits what:
  *   My Profile -> name, email, phone, governorate, address
- *   Settings   -> username, notifications, password
+ *   Settings   -> username, appearance, notifications, password
  */
 export default function Settings(): React.JSX.Element {
     const { user, updateUser } = useAuthContext();
+    const { theme, setTheme } = useTheme();
 
     // Username
     const [editingUsername, setEditingUsername] = useState(false);
@@ -642,6 +644,78 @@ export default function Settings(): React.JSX.Element {
                         {statusMessage}
                     </p>
                 )}
+            </section>
+
+            {/* ---------- Appearance / Theme ---------- */}
+            <section className="settings-card">
+                <div className="settings-section-heading">
+                    <h3>Appearance</h3>
+                    <p>Choose your preferred theme for the store and dashboard.</p>
+                </div>
+
+                <div className="settings-theme-grid">
+                    <button
+                        type="button"
+                        className={`settings-theme-option ${theme === "light" ? "is-selected" : ""}`}
+                        onClick={() => setTheme("light")}
+                        aria-pressed={theme === "light"}
+                    >
+                        <div className="settings-theme-card-header">
+                            <span className="settings-theme-icon light-icon" aria-hidden="true">☀️</span>
+                            <div className="settings-theme-labels">
+                                <strong>Light Mode</strong>
+                                <small>Clean and bright with soft rose accents</small>
+                            </div>
+                            <span className="settings-theme-radio" aria-hidden="true">
+                                {theme === "light" && <FontAwesomeIcon icon={faCheck} />}
+                            </span>
+                        </div>
+                        <div className="settings-theme-mini-preview light">
+                            <div className="mini-nav"></div>
+                            <div className="mini-body">
+                                <div className="mini-sidebar"></div>
+                                <div className="mini-content">
+                                    <div className="mini-bar"></div>
+                                    <div className="mini-boxes">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+
+                    <button
+                        type="button"
+                        className={`settings-theme-option ${theme === "dark" ? "is-selected" : ""}`}
+                        onClick={() => setTheme("dark")}
+                        aria-pressed={theme === "dark"}
+                    >
+                        <div className="settings-theme-card-header">
+                            <span className="settings-theme-icon dark-icon" aria-hidden="true">🌙</span>
+                            <div className="settings-theme-labels">
+                                <strong>Dark Mode</strong>
+                                <small>Velvet plum & dark rose, easy on the eyes</small>
+                            </div>
+                            <span className="settings-theme-radio" aria-hidden="true">
+                                {theme === "dark" && <FontAwesomeIcon icon={faCheck} />}
+                            </span>
+                        </div>
+                        <div className="settings-theme-mini-preview dark">
+                            <div className="mini-nav"></div>
+                            <div className="mini-body">
+                                <div className="mini-sidebar"></div>
+                                <div className="mini-content">
+                                    <div className="mini-bar"></div>
+                                    <div className="mini-boxes">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
             </section>
         </div>
     );

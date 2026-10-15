@@ -8,6 +8,7 @@ import { SHADES, type Shade } from "../../types/shade";
 import { updateProfile } from "../../api/users/users";
 import { useAuthContext } from "../../Context/useAuthContext";
 import { useToast } from "../../Context/useToast";
+import ThemeToggle from "../../Components/ThemeToggle/ThemeToggle";
 import { getMe } from "../../api/auth/auth";
 import { getGovernorates } from "../../api/orders/orders";
 
@@ -228,9 +229,12 @@ export default function CompleteProfile(): React.JSX.Element {
 
     return (
         <main
-            className="min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024] lg:grid lg:grid-cols-[1fr_1.05fr]"
+            className="relative min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024] lg:grid lg:grid-cols-[1fr_1.05fr]"
             style={{ fontFamily: "'Manrope', system-ui, sans-serif" }}
         >
+            <div className="absolute right-5 top-5 z-20">
+                <ThemeToggle />
+            </div>
             <Helmet>
                 <title>Complete Profile - HAGORA</title>
                 <meta name="description" content="Complete your HAGORA profile" />

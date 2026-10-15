@@ -46,7 +46,7 @@ export default function DiscountBanner() {
                             <button
                                 type="button"
                                 onClick={handleCopyCode}
-                                className="btn btn-outline-dark rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2"
+                                className="hagora-copy-code-btn btn rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-2"
                             >
                                 <i
                                     className={

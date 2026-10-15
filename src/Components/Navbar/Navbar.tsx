@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCart } from '../../Context/useCart'
 import { useAuthContext } from '../../Context/useAuthContext'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import styles from './Navbar.module.css'
 
 interface NavItem {
@@ -123,6 +124,8 @@ export default function Navbar(): React.JSX.Element {
                         </div>
 
                         <div className={styles.actions}>
+                            <ThemeToggle />
+
                             <Link
                                 to="/search"
                                 className={`${styles.iconButton} ${styles.hideOnMobile} ${isSearchVisible
@@ -313,6 +316,8 @@ export default function Navbar(): React.JSX.Element {
                     </div>
 
                     <div className={styles.mobileBottomSection}>
+                        <ThemeToggle variant="row" className="mb-3" />
+
                         {isAuthenticated ? (
                             <>
                                 <div className={styles.mobileAccountHeading}>

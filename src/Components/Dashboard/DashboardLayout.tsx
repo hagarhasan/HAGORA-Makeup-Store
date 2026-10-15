@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet, useNavigate, Navigate } from 'react-router-dom'
 import { useAuthContext } from '../../Context/useAuthContext'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import './DashboardLayout.css'
 
 export default function DashboardLayout(): React.JSX.Element {
@@ -114,6 +115,8 @@ export default function DashboardLayout(): React.JSX.Element {
                 </nav>
 
                 <div className="dashboard-sidebar-bottom">
+                    <ThemeToggle variant="row" className="w-100 mb-2" />
+
                     <Link to="/" className="dashboard-store-link">
                         <i className="fa-solid fa-arrow-left" aria-hidden="true" />
                         <span>Back to Store</span>

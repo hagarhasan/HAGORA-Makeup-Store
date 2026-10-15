@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { apiRequest } from "../../api/client/client";
+import ThemeToggle from "../../Components/ThemeToggle/ThemeToggle";
 
 export default function ForgotPassword(): React.JSX.Element {
     const [email, setEmail] = useState("");
@@ -48,7 +49,10 @@ export default function ForgotPassword(): React.JSX.Element {
     };
 
     return (
-        <main className="min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024]">
+        <main className="relative min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024]">
+            <div className="absolute right-5 top-5 z-20">
+                <ThemeToggle />
+            </div>
             <Helmet>
                 <title>Forgot password - HAGORA</title>
                 <meta

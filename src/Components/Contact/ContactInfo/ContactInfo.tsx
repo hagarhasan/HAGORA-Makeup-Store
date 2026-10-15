@@ -29,7 +29,7 @@ const socials: SocialLink[] = [
 
 export default function ContactInfo(): React.JSX.Element {
     return (
-        <section className={styles.panel} aria-labelledby="contact-info-title">
+        <section className={`${styles.panel} hagora-contact-panel`} aria-labelledby="contact-info-title">
             <h2 id="contact-info-title">How can we help?</h2>
 
             <p className={styles.description}>

@@ -46,12 +46,18 @@
 }
 
 .logo {
-    display: inline-block;
+    display: inline-flex;
+    align-items: flex-start;
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 0.2em;
     color: var(--hg-pink-deep);
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.logo:hover {
+    color: var(--hg-pink-darker);
 }
 
 .description {
@@ -79,13 +85,20 @@
     background: #fff;
     color: var(--hg-pink-deep);
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .socials a:hover {
     border-color: var(--hg-pink-deep);
     background: var(--hg-pink-deep);
     color: #fff;
+    box-shadow: 0 8px 18px rgb(194 24 91 / 24%);
+    transform: translateY(-3px) scale(1.06);
 }
 
 .title {

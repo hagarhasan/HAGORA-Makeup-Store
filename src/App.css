@@ -313,6 +313,27 @@
     transform: translateY(-2px);
 }
 
+.hagora-copy-code-btn {
+    min-height: 46px;
+    border: 1px solid #880e4f;
+    background: #fff;
+    color: #880e4f;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hagora-copy-code-btn:hover {
+    border-color: #880e4f;
+    background: #880e4f;
+    color: #fff;
+    box-shadow: 0 8px 20px rgb(136 14 79 / 20%);
+    transform: translateY(-2px);
+}
+
+.hagora-copy-code-btn:focus-visible {
+    outline: 3px solid rgb(194 24 91 / 50%);
+    outline-offset: 3px;
+}
+
 @media (max-width: 991px) {
     .hagora-hero-img-container {
         height: 450px;

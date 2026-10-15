@@ -21,6 +21,7 @@ import Contact from './Pages/Contact/Contact'
 import { CartProvider } from './Context/CartContext'
 import { AuthProvider } from './Context/AuthContext'
 import { ToastProvider } from './Context/ToastContext'
+import { ThemeProvider } from './Context/ThemeContext'
 import Search from './Pages/Search/Search'
 import type { Product } from './types/product'
 import { fallbackProducts } from './data/fallbackProducts'
@@ -198,25 +199,27 @@ export default function App() {
   })
 
   return (
-    <AuthProvider>
-      <CartProvider>
-        <ToastProvider>
-          {error && (
-            <div
-              role="status"
-              className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg bg-pink-100 px-4 py-3 text-sm text-pink-900 shadow-lg"
-            >
-              {error}
-            </div>
-          )}
+    <ThemeProvider>
+      <AuthProvider>
+        <CartProvider>
+          <ToastProvider>
+            {error && (
+              <div
+                role="status"
+                className="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg bg-pink-100 px-4 py-3 text-sm text-pink-900 shadow-lg"
+              >
+                {error}
+              </div>
+            )}
 
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
 
-          <Offline>
-            <OfflinePage />
-          </Offline>
-        </ToastProvider>
-      </CartProvider>
-    </AuthProvider>
+            <Offline>
+              <OfflinePage />
+            </Offline>
+          </ToastProvider>
+        </CartProvider>
+      </AuthProvider>
+    </ThemeProvider>
   )
 }

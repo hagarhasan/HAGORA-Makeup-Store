@@ -28,7 +28,7 @@ export default function CTA({
 
                 <Link
                     to={buttonLink}
-                    className={`${styles.button} d-inline-block mt-3`}
+                    className={`${styles.button} mt-3`}
                 >
                     {buttonText}
                     <i className="fa-solid fa-arrow-right ms-2"></i>

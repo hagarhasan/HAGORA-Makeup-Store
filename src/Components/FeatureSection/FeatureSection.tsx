@@ -22,20 +22,20 @@ export default function FeatureSection({
     variant = 'default'
 }: FeatureSectionProps) {
     return (
-        <section className={`${styles.section} ${styles[variant]}`}>
+        <section className={`${styles.section} ${styles[variant]} hagora-feature-section`}>
 
-            <div className={styles.header}>
+            <div className={`${styles.header} hagora-feature-header`}>
 
-                <span className={styles.label}>
+                <span className={`${styles.label} hagora-feature-label`}>
                     {label}
                 </span>
 
-                <h2 className={styles.title}>
+                <h2 className={`${styles.title} hagora-feature-title`}>
                     {title}
                 </h2>
 
                 {description && (
-                    <p className={styles.description}>
+                    <p className={`${styles.description} hagora-feature-description`}>
                         {description}
                     </p>
                 )}
@@ -51,17 +51,17 @@ export default function FeatureSection({
                         key={index}
                     >
 
-                        <div className={styles.card}>
+                        <div className={`${styles.card} hagora-feature-card`}>
 
-                            <div className={styles.icon}>
+                            <div className={`${styles.icon} hagora-feature-icon`}>
                                 <i className={`fa-solid ${feature.icon}`}></i>
                             </div>
 
-                            <h4 className={styles.cardTitle}>
+                            <h4 className={`${styles.cardTitle} hagora-feature-card-title`}>
                                 {feature.title}
                             </h4>
 
-                            <p className={styles.cardDescription}>
+                            <p className={`${styles.cardDescription} hagora-feature-card-description`}>
                                 {feature.description}
                             </p>
 

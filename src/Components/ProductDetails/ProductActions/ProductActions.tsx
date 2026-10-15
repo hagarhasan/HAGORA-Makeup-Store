@@ -149,7 +149,7 @@ export default function ProductActions({
                     <div className="d-flex gap-3 flex-wrap">
                         <button
                             onClick={handleAddToCart}
-                            className="btn text-white rounded-pill px-4 py-3"
+                            className={`btn text-white rounded-pill px-4 py-3 hagora-product-add-btn${added ? ' is-added' : ''}`}
                             style={{
                                 backgroundColor: added
                                     ? '#2e7d32'

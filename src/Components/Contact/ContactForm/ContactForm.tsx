@@ -35,7 +35,7 @@ export default function ContactForm(): React.JSX.Element {
     const errors = validate(values)
     const showError = (f: FieldName) => !!touched[f] && !!errors[f]
     const controlClass = (f: FieldName) =>
-        `${styles.control} ${showError(f) ? styles.invalid : ''}`
+        `${styles.control} hagora-contact-control ${showError(f) ? styles.invalid : ''}`
 
     useEffect(() => {
         if (status === 'sent') successRef.current?.focus()
@@ -75,7 +75,7 @@ export default function ContactForm(): React.JSX.Element {
 
     if (status === 'sent') {
         return (
-            <section className={`${styles.card} ${styles.success}`} role="status">
+            <section className={`${styles.card} ${styles.success} hagora-contact-card`} role="status">
                 <span className={styles.successIcon} aria-hidden="true">
                     <i className="fa-solid fa-check" />
                 </span>
@@ -87,7 +87,7 @@ export default function ContactForm(): React.JSX.Element {
                     <strong>{values.email}</strong> within 24 hours.
                 </p>
 
-                <button type="button" className={styles.secondary} onClick={reset}>
+                <button type="button" className={`${styles.secondary} hagora-contact-secondary`} onClick={reset}>
                     Send another message
                 </button>
             </section>
@@ -95,11 +95,11 @@ export default function ContactForm(): React.JSX.Element {
     }
 
     return (
-        <section className={styles.card} aria-labelledby="contact-form-title">
-            <h3 id="contact-form-title" className={styles.title}>
+        <section className={`${styles.card} hagora-contact-card`} aria-labelledby="contact-form-title">
+            <h3 id="contact-form-title" className={`${styles.title} hagora-contact-title`}>
                 Send us a message
             </h3>
-            <p className={styles.subtitle}>
+            <p className={`${styles.subtitle} hagora-contact-subtitle`}>
                 Fill in the form and our team will get back to you.
             </p>
 

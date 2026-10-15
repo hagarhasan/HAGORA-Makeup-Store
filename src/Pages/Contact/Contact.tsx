@@ -9,12 +9,12 @@ export default function Contact(): React.JSX.Element {
     // Page background lives on <body> so it covers the full screen,
     // not just the Layout's max-w-7xl wrapper. Removed when leaving the page.
     useEffect(() => {
-        document.body.classList.add(styles.pageBg)
-        return () => document.body.classList.remove(styles.pageBg)
+        document.body.classList.add(styles.pageBg, 'contact-page-body')
+        return () => document.body.classList.remove(styles.pageBg, 'contact-page-body')
     }, [])
 
     return (
-        <div className={styles.contact}>
+        <div className={`${styles.contact} hagora-contact-page`}>
             <Helmet>
                 <title>Contact - HAGORA</title>
                 <meta name="description" content="Contact HAGORA about your order, our products or anything else." />

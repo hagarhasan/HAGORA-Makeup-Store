@@ -15,6 +15,7 @@ import { loginUser, getMe } from "../../api/auth/auth";
 
 import { useAuthContext } from "../../Context/useAuthContext";
 import { useToast } from "../../Context/useToast";
+import ThemeToggle from "../../Components/ThemeToggle/ThemeToggle";
 
 type Touched = {
     email?: boolean;
@@ -133,11 +134,14 @@ export default function Login(): React.JSX.Element {
 
     return (
         <main
-            className="min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024] lg:grid lg:grid-cols-[1.05fr_1fr]"
+            className="relative min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024] lg:grid lg:grid-cols-[1.05fr_1fr]"
             style={{
                 fontFamily: "'Manrope', system-ui, sans-serif",
             }}
         >
+            <div className="absolute right-5 top-5 z-20">
+                <ThemeToggle />
+            </div>
             <Helmet>
                 <title>Sign in - HAGORA</title>
 

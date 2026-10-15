@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header({ title, description }: { title: string; description: string }) {
     return (
         <section
-            className="py-5 text-center rounded-4 mb-5"
+            className="hagora-page-heading py-5 text-center rounded-4 mb-5"
             style={{ backgroundColor: '#fce4ec' }}
         >
             <div className="container">

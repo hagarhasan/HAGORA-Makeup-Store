@@ -11,7 +11,7 @@ export default function ContactHeader(): React.JSX.Element {
                 Send us a message and we'll get back to you.
             </p>
 
-            <span className={styles.status}>
+            <span className={`${styles.status} hagora-contact-status`}>
                 <span className={styles.dot} aria-hidden="true" />
                 We usually reply within 24 hours
             </span>

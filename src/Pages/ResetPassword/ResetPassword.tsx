@@ -2,6 +2,7 @@ import React, { useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useSearchParams } from "react-router-dom";
 import { resetPassword } from "../../api/auth/auth";
+import ThemeToggle from "../../Components/ThemeToggle/ThemeToggle";
 
 export default function ResetPassword(): React.JSX.Element {
     const [searchParams] = useSearchParams();
@@ -58,7 +59,10 @@ export default function ResetPassword(): React.JSX.Element {
     };
 
     return (
-        <main className="min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024]">
+        <main className="relative min-h-screen bg-[linear-gradient(135deg,#fce4ec_0%,#fff0f5_50%,#f8bbd0_100%)] text-[#2b2024]">
+            <div className="absolute right-5 top-5 z-20">
+                <ThemeToggle />
+            </div>
             <Helmet>
                 <title>Reset password - HAGORA</title>
                 <meta

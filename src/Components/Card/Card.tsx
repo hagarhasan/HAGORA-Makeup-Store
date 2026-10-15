@@ -201,7 +201,7 @@ export default function Card({ product, badge }: CardProps) {
                             <button
                                 onClick={handleAddToCart}
                                 disabled={!isPriceAvailable}
-                                className="btn rounded-circle d-flex align-items-center justify-content-center hagora-cart-btn"
+                                className={`btn rounded-circle d-flex align-items-center justify-content-center hagora-cart-btn hagora-primary-action${isInCart || added ? ' is-added' : ''}${!isPriceAvailable ? ' is-unavailable' : ''}`}
                                 style={{
                                     backgroundColor:
                                         !isPriceAvailable
