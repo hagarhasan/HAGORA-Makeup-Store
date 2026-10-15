@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faEye, faEyeSlash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEye, faEyeSlash, faMoon, faPen, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useAuthContext } from "../../../Context/useAuthContext";
 import { useTheme } from "../../../Context/useTheme";
 import {
@@ -661,7 +661,9 @@ export default function Settings(): React.JSX.Element {
                         aria-pressed={theme === "light"}
                     >
                         <div className="settings-theme-card-header">
-                            <span className="settings-theme-icon light-icon" aria-hidden="true">☀️</span>
+                            <span className="settings-theme-icon light-icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faSun} />
+                            </span>
                             <div className="settings-theme-labels">
                                 <strong>Light Mode</strong>
                                 <small>Clean and bright with soft rose accents</small>
@@ -692,7 +694,9 @@ export default function Settings(): React.JSX.Element {
                         aria-pressed={theme === "dark"}
                     >
                         <div className="settings-theme-card-header">
-                            <span className="settings-theme-icon dark-icon" aria-hidden="true">🌙</span>
+                            <span className="settings-theme-icon dark-icon" aria-hidden="true">
+                                <FontAwesomeIcon icon={faMoon} />
+                            </span>
                             <div className="settings-theme-labels">
                                 <strong>Dark Mode</strong>
                                 <small>Velvet plum & dark rose, easy on the eyes</small>

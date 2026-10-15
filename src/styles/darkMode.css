@@ -560,17 +560,32 @@
 }
 
 :root[data-theme='dark'] .dashboard {
+    --dashboard-pink: #ef83ad;
+    --dashboard-pink-dark: #db6794;
+    --dashboard-pink-light: #35202c;
+    --dashboard-text: var(--hg-ink);
+    --dashboard-muted: var(--hg-muted);
     background: var(--hg-page);
     color: var(--hg-ink);
 }
 
 :root[data-theme='dark'] .dashboard-sidebar {
     border-color: var(--hg-line);
-    background: #1c1218;
+    background: #1b1218;
+}
+
+:root[data-theme='dark'] .dashboard-brand {
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .dashboard-brand:hover {
+    color: var(--hg-pink-darker);
 }
 
 :root[data-theme='dark'] .dashboard-user {
     border-color: var(--hg-line);
+    background: var(--hg-gradient-banner) !important;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
 }
 
 :root[data-theme='dark'] .dashboard-nav-link {
@@ -581,6 +596,19 @@
 :root[data-theme='dark'] .dashboard-nav-link.active {
     background: var(--dashboard-pink-light);
     color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .dashboard-nav-link:hover .dashboard-nav-icon,
+:root[data-theme='dark'] .dashboard-nav-link.active .dashboard-nav-icon {
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .dashboard-menu-title,
+:root[data-theme='dark'] .dashboard-eyebrow,
+:root[data-theme='dark'] .profile-eyebrow,
+:root[data-theme='dark'] .orders-eyebrow,
+:root[data-theme='dark'] .settings-eyebrow {
+    color: var(--hg-pink-deep);
 }
 
 :root[data-theme='dark'] .dashboard-header,
@@ -620,9 +648,343 @@
     color: var(--hg-pink-darker);
 }
 
+:root[data-theme='dark'] .orders-filter.active {
+    box-shadow: inset 0 0 0 1px rgb(239 131 173 / 12%);
+}
+
 :root[data-theme='dark'] .dashboard-logout-button {
     border-color: #74404e;
     background: #321b24;
+    color: #ffc0c8;
+}
+
+:root[data-theme='dark'] .dashboard-logout-button:hover {
+    border-color: var(--hg-pink-deep);
+    background: var(--hg-gradient-action);
+    color: #fff;
+}
+
+:root[data-theme='dark'] .dashboard-store-link,
+:root[data-theme='dark'] .dashboard-back-link {
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .dashboard-store-link:hover,
+:root[data-theme='dark'] .dashboard-back-link:hover,
+:root[data-theme='dark'] .dashboard-brand:hover {
+    color: #ffd0e0;
+}
+
+:root[data-theme='dark'] .dashboard-main {
+    background:
+        radial-gradient(ellipse at 100% 0%, rgb(95 42 68 / 12%), transparent 42%),
+        var(--hg-page);
+}
+
+:root[data-theme='dark'] .dashboard-header {
+    border-color: var(--hg-line);
+}
+
+:root[data-theme='dark'] .my-profile,
+:root[data-theme='dark'] .my-orders,
+:root[data-theme='dark'] .settings-page {
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .profile-description,
+:root[data-theme='dark'] .profile-section-heading p,
+:root[data-theme='dark'] .profile-user-summary p,
+:root[data-theme='dark'] .settings-heading > p:last-child,
+:root[data-theme='dark'] .settings-section-heading p,
+:root[data-theme='dark'] .settings-hint,
+:root[data-theme='dark'] .settings-option small,
+:root[data-theme='dark'] .settings-theme-labels small,
+:root[data-theme='dark'] .orders-description,
+:root[data-theme='dark'] .orders-stat-card p,
+:root[data-theme='dark'] .orders-toolbar p,
+:root[data-theme='dark'] .orders-empty {
+    color: var(--hg-muted);
+}
+
+:root[data-theme='dark'] .profile-card,
+:root[data-theme='dark'] .settings-card,
+:root[data-theme='dark'] .orders-stat-card,
+:root[data-theme='dark'] .orders-card {
+    border-color: var(--hg-line);
+    background: linear-gradient(145deg, var(--hg-surface-raised), var(--hg-surface));
+    box-shadow: 0 12px 32px rgb(0 0 0 / 20%);
+}
+
+:root[data-theme='dark'] .profile-status,
+:root[data-theme='dark'] .orders-count {
+    background: var(--hg-tint);
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .profile-row-text strong,
+:root[data-theme='dark'] .settings-row-text strong,
+:root[data-theme='dark'] .settings-option strong,
+:root[data-theme='dark'] .order-main h4,
+:root[data-theme='dark'] .order-total > strong,
+:root[data-theme='dark'] .order-modal-info strong {
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .profile-row-text strong.is-empty {
+    color: #a78d9a;
+}
+
+:root[data-theme='dark'] .profile-row-label,
+:root[data-theme='dark'] .settings-row-label,
+:root[data-theme='dark'] .settings-field label,
+:root[data-theme='dark'] .settings-eye-button,
+:root[data-theme='dark'] .orders-search,
+:root[data-theme='dark'] .order-date,
+:root[data-theme='dark'] .order-modal-info span {
+    color: var(--hg-muted);
+}
+
+:root[data-theme='dark'] .profile-section-heading a,
+:root[data-theme='dark'] .profile-user-summary span {
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .profile-avatar {
+    background: var(--hg-tint);
+    color: var(--hg-pink-darker);
+    box-shadow: inset 0 0 0 1px rgb(239 131 173 / 12%);
+}
+
+:root[data-theme='dark'] .profile-input,
+:root[data-theme='dark'] .settings-input,
+:root[data-theme='dark'] .orders-search input,
+:root[data-theme='dark'] .settings-select {
+    border-color: var(--hg-line);
+    background: #1a1118;
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .orders-search input {
+    border: 0;
+    background: transparent !important;
+}
+
+:root[data-theme='dark'] .profile-input:focus,
+:root[data-theme='dark'] .settings-input:focus,
+:root[data-theme='dark'] .orders-search:focus-within {
+    border-color: var(--hg-pink-deep);
+    background: var(--hg-surface-raised);
+    box-shadow: 0 0 0 3px rgb(239 131 173 / 14%);
+}
+
+:root[data-theme='dark'] .profile-edit-button,
+:root[data-theme='dark'] .settings-edit-button,
+:root[data-theme='dark'] .settings-link-button {
+    border-color: var(--hg-line);
+    background: var(--hg-tint);
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .profile-edit-button:hover:not(:disabled),
+:root[data-theme='dark'] .settings-edit-button:hover:not(:disabled),
+:root[data-theme='dark'] .settings-link-button:hover {
+    border-color: var(--hg-pink-deep);
+    background: var(--hg-gradient-action);
+    color: #fff;
+}
+
+:root[data-theme='dark'] .profile-save-button,
+:root[data-theme='dark'] .settings-save-button,
+:root[data-theme='dark'] .orders-modal-done,
+:root[data-theme='dark'] .orders-retry-button {
+    border: 1px solid transparent;
+    background: var(--hg-gradient-action);
+    color: #fff;
+}
+
+:root[data-theme='dark'] .profile-save-button:hover:not(:disabled),
+:root[data-theme='dark'] .settings-save-button:hover:not(:disabled),
+:root[data-theme='dark'] .orders-modal-done:hover,
+:root[data-theme='dark'] .orders-retry-button:hover {
+    border-color: rgb(255 192 214 / 38%);
+    background: linear-gradient(135deg, #e96f9d 0%, #ad426e 100%);
+}
+
+:root[data-theme='dark'] .profile-cancel-button,
+:root[data-theme='dark'] .settings-cancel-button {
+    border-color: var(--hg-line);
+    background: var(--hg-surface-raised);
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .profile-cancel-button:hover:not(:disabled),
+:root[data-theme='dark'] .settings-cancel-button:hover:not(:disabled) {
+    background: var(--hg-tint);
+}
+
+:root[data-theme='dark'] .settings-option {
+    border-color: var(--hg-line);
+}
+
+:root[data-theme='dark'] .settings-option input {
+    accent-color: var(--hg-pink-deep);
+}
+
+:root[data-theme='dark'] .settings-rule-icon {
+    border-color: #705867;
+    background: var(--hg-surface);
+}
+
+:root[data-theme='dark'] .settings-rules li {
+    color: var(--hg-muted);
+}
+
+:root[data-theme='dark'] .settings-rules li.ok {
+    color: #a8e4bd;
+}
+
+:root[data-theme='dark'] .settings-rules li.ok .settings-rule-icon {
+    border-color: #398c63;
+    background: #286947;
+}
+
+:root[data-theme='dark'] .settings-message.success,
+:root[data-theme='dark'] .profile-message.success {
+    color: #a8e4bd;
+}
+
+:root[data-theme='dark'] .settings-message.error,
+:root[data-theme='dark'] .profile-message.error {
+    color: #ffb5bd;
+}
+
+:root[data-theme='dark'] .settings-strength-bars span {
+    background: #493441;
+}
+
+:root[data-theme='dark'] .settings-strength-label.level-1 {
+    color: #ff9ca6;
+}
+
+:root[data-theme='dark'] .settings-strength-label.level-2 {
+    color: #f5cd7c;
+}
+
+:root[data-theme='dark'] .settings-strength-label.level-3 {
+    color: #c6e48c;
+}
+
+:root[data-theme='dark'] .settings-strength-label.level-4 {
+    color: #a8e4bd;
+}
+
+:root[data-theme='dark'] .settings-theme-icon {
+    background: var(--hg-tint);
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .settings-theme-icon.light-icon {
+    background: #352a22;
+    color: #ffd28a;
+}
+
+:root[data-theme='dark'] .settings-theme-icon.dark-icon {
+    background: #35202c;
+    color: #ffc0d6;
+}
+
+:root[data-theme='dark'] .settings-theme-mini-preview {
+    border-color: var(--hg-line);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 2%);
+}
+
+:root[data-theme='dark'] .orders-page-heading .orders-count {
+    border-color: var(--hg-line);
+}
+
+:root[data-theme='dark'] .orders-stat-icon,
+:root[data-theme='dark'] .order-icon {
+    box-shadow: inset 0 0 0 1px rgb(239 131 173 / 10%);
+}
+
+:root[data-theme='dark'] .order-main p {
+    color: #d1b9c5;
+}
+
+:root[data-theme='dark'] .order-status-delivered {
+    background: #173629;
+    color: #a8e4bd;
+}
+
+:root[data-theme='dark'] .order-status-processing {
+    background: #1b2b43;
+    color: #a9c7ff;
+}
+
+:root[data-theme='dark'] .order-status-pending {
+    background: #3a2b18;
+    color: #f5cd7c;
+}
+
+:root[data-theme='dark'] .order-status-cancelled {
+    background: #3b2026;
+    color: #ffb5bd;
+}
+
+:root[data-theme='dark'] .order-details-button,
+:root[data-theme='dark'] .order-modal-close {
+    border-color: var(--hg-line);
+    background: var(--hg-surface-raised);
+    color: var(--hg-pink-darker);
+}
+
+:root[data-theme='dark'] .order-details-button:hover,
+:root[data-theme='dark'] .order-modal-close:hover {
+    border-color: var(--hg-pink-deep);
+    background: var(--hg-gradient-action);
+    color: #fff;
+}
+
+:root[data-theme='dark'] .order-modal-backdrop {
+    background: rgb(8 5 8 / 76%);
+    backdrop-filter: blur(5px);
+}
+
+:root[data-theme='dark'] .order-modal {
+    border-color: var(--hg-line);
+    background: linear-gradient(145deg, #2a1b25, #1b1218);
+    box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .order-modal-info,
+:root[data-theme='dark'] .order-modal-products p {
+    border-color: var(--hg-line);
+}
+
+:root[data-theme='dark'] .order-modal-products p {
+    color: #d1b9c5;
+}
+
+:root[data-theme='dark'] .orders-empty h4 {
+    color: var(--hg-ink);
+}
+
+:root[data-theme='dark'] .settings-theme-option:focus-visible,
+:root[data-theme='dark'] .profile-edit-button:focus-visible,
+:root[data-theme='dark'] .profile-save-button:focus-visible,
+:root[data-theme='dark'] .profile-cancel-button:focus-visible,
+:root[data-theme='dark'] .settings-edit-button:focus-visible,
+:root[data-theme='dark'] .settings-save-button:focus-visible,
+:root[data-theme='dark'] .settings-cancel-button:focus-visible,
+:root[data-theme='dark'] .settings-link-button:focus-visible,
+:root[data-theme='dark'] .settings-eye-button:focus-visible,
+:root[data-theme='dark'] .orders-filter:focus-visible,
+:root[data-theme='dark'] .order-details-button:focus-visible,
+:root[data-theme='dark'] .order-modal-close:focus-visible,
+:root[data-theme='dark'] .orders-modal-done:focus-visible {
+    outline: 3px solid rgb(255 192 214 / 72%);
+    outline-offset: 3px;
 }
 
 :root[data-theme='dark'] .modal-content,
