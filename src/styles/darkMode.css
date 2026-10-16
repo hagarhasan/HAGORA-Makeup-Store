@@ -510,6 +510,26 @@
     color: var(--hg-ink) !important;
 }
 
+:root[data-theme='dark'] [class*='_cartButton_'] {
+    border: 1px solid transparent !important;
+    background: var(--hg-pink-deep) !important;
+    color: #24131c !important;
+    box-shadow: 0 8px 25px rgb(239 131 173 / 28%);
+}
+
+:root[data-theme='dark'] [class*='_cartButton_']:hover {
+    border-color: rgb(255 192 214 / 55%) !important;
+    background: var(--hg-pink-darker) !important;
+    color: #24131c !important;
+    box-shadow: 0 12px 28px rgb(239 131 173 / 38%);
+}
+
+:root[data-theme='dark'] [class*='_cartButton_'] [class*='_badge_'] {
+    border-color: var(--hg-pink-deep);
+    background: var(--hg-surface);
+    color: var(--hg-pink-darker);
+}
+
 :root[data-theme='dark'] [class*='_accountMenu_'] {
     border-color: var(--hg-line) !important;
     background: var(--hg-surface) !important;
