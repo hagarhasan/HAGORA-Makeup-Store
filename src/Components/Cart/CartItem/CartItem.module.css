@@ -1,0 +1,34 @@
+.quantityControl {
+    background-color: #fff;
+}
+
+.quantityButton {
+    width: 28px;
+    height: 28px;
+    border: none;
+}
+
+.decreaseButton {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+.increaseButton {
+    background-color: #c2185b;
+    color: #fff;
+}
+
+:global(:root[data-theme='dark']) .quantityControl {
+    border-color: var(--hg-line) !important;
+    background-color: var(--hg-surface) !important;
+}
+
+:global(:root[data-theme='dark']) .decreaseButton {
+    background-color: var(--hg-tint) !important;
+    color: var(--hg-pink-darker) !important;
+}
+
+:global(:root[data-theme='dark']) .increaseButton {
+    background-color: var(--hg-pink-deep) !important;
+    color: #24131c !important;
+}

@@ -3,6 +3,7 @@ import { useCart } from '../../../Context/useCart'
 import placeholderImg from '../../../assets/placeholder.svg'
 import { Link } from 'react-router-dom'
 import type { CartItem as CartItemType } from '../../../types/product'
+import styles from './CartItem.module.css'
 
 export default function CartItem({ item }: { item: CartItemType }) {
 
@@ -87,20 +88,12 @@ export default function CartItem({ item }: { item: CartItemType }) {
                 <div className="col-6 col-sm-3 col-md-3">
 
                     <div
-                        className="d-inline-flex align-items-center rounded-pill border p-1"
-                        style={{ backgroundColor: '#fff' }}
+                        className={`d-inline-flex align-items-center rounded-pill border p-1 ${styles.quantityControl}`}
                     >
 
                         <button
                             onClick={() => decreaseQuantity(item.id)}
-                            className="btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '28px',
-                                height: '28px',
-                                backgroundColor: '#fce4ec',
-                                color: '#c2185b',
-                                border: 'none'
-                            }}
+                            className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center ${styles.quantityButton} ${styles.decreaseButton}`}
                         >
                             <i
                                 className="fa-solid fa-minus"
@@ -114,14 +107,7 @@ export default function CartItem({ item }: { item: CartItemType }) {
 
                         <button
                             onClick={() => increaseQuantity(item.id)}
-                            className="btn btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                                width: '28px',
-                                height: '28px',
-                                backgroundColor: '#c2185b',
-                                color: '#fff',
-                                border: 'none'
-                            }}
+                            className={`btn btn-sm rounded-circle d-flex align-items-center justify-content-center ${styles.quantityButton} ${styles.increaseButton}`}
                         >
                             <i
                                 className="fa-solid fa-plus"
