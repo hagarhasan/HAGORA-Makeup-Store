@@ -1,6 +1,5 @@
 
 import './App.css'
-
 import { useEffect, useState } from 'react'
 import {
   createBrowserRouter,
@@ -36,6 +35,8 @@ import MyOrders from './Pages/dashboard/MyOrders/MyOrders'
 import Settings from './Pages/dashboard/Settings/Settings'
 import DashboardLayout from './Components/Dashboard/DashboardLayout'
 import OfflinePage from './Pages/OfflinePage/OfflinePage'
+import Terms from './Pages/Terms/Terms'
+import Privacy from './Pages/Privacy/Privacy'
 
 const placeholderImg =
   'https://placehold.co/400x400/fce7f3/9d174d?text=HAGORA'
@@ -193,6 +194,14 @@ export default function App() {
           ],
         },
       ],
+    },
+    {
+      path: '/terms',
+      element: <Terms />,
+    },
+    {
+      path: '/privacy',
+      element: <Privacy />,
     },
   ], {
     basename: import.meta.env.BASE_URL,

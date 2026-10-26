@@ -68,7 +68,6 @@ export function ToastProvider({ children }: ToastProviderProps): React.JSX.Eleme
 
             setToast(newToast);
 
-            // Auto-dismiss after duration
             dismissTimerRef.current = window.setTimeout(() => {
                 setToast((current) => (current ? { ...current, isExiting: true } : null));
 

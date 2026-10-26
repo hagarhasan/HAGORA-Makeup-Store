@@ -20,7 +20,6 @@ type AuthProviderProps = {
 
 const STORAGE_KEY = "hagoraAuth";
 
-// Read + parse localStorage once (previously it was read and parsed twice).
 function readSavedAuth(): SavedAuth {
     if (typeof window === "undefined") {
         return { user: null, token: null };
@@ -113,9 +112,7 @@ export function AuthProvider({
         setUser(nextUser);
         setToken(nextToken);
 
-        // Written immediately (not only in the effect above) on purpose:
-        // the API layer reads the token from localStorage, and the next
-        // request can fire before the effect runs.
+
         try {
             localStorage.setItem(
                 STORAGE_KEY,
@@ -145,8 +142,7 @@ export function AuthProvider({
         setToken(null);
     }, []);
 
-    // Stable context value: consumers only re-render when something
-    // they read actually changes.
+
     const value = useMemo(
         () => ({
             user,
